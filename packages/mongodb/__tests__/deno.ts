@@ -1,4 +1,4 @@
-import { MongoClient, Collection } from 'https://deno.land/x/mongo@v0.32.0/mod.ts';
+import { MongoClient, Collection } from 'https://deno.land/x/mongo@v0.34.0/mod.ts';
 import { expect } from 'https://deno.land/x/expect/mod.ts';
 import { session } from 'https://lib.deno.dev/x/grammy@1.x/mod.ts';
 import { createBot, createMessage } from '../../../libs/utils/src/mod.ts';
