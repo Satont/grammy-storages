@@ -1,6 +1,6 @@
 export type { StorageAdapter } from 'https://lib.deno.dev/x/grammy@1.x/mod.ts';
-import { exists, existsSync } from 'https://deno.land/std@0.217.0/fs/mod.ts';
-import { resolve } from 'https://deno.land/std@0.217.0/path/mod.ts';
+import { exists, existsSync } from 'https://deno.land/std@0.224.0/fs/mod.ts';
+import { resolve } from 'https://deno.land/std@0.224.0/path/mod.ts';
 
 export const fs = {
   readFile: Deno.readTextFile,

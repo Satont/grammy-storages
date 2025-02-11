@@ -1,6 +1,6 @@
 
 import { session } from 'https://lib.deno.dev/x/grammy@1.x/mod.ts';
-import { expect } from 'https://deno.land/x/expect@v0.4.0/mod.ts';
+import { expect } from 'https://deno.land/x/expect@v0.4.2/mod.ts';
 import { FileAdapter } from '../src/mod.ts';
 import { fs, path } from '../src/deps.deno.ts';
 import { createMessage, createBot } from '../../../libs/utils/src/mod.ts';
