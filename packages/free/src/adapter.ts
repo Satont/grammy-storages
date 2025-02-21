@@ -25,11 +25,11 @@ class Storage {
 
   async call(
     method: 'GET' | 'POST' | 'DELETE',
-    key: string,
+    key?: string, // make key optional to allow global calls
     body?: string,
   ): Promise<string | undefined> {
     // perform request
-    const url = `${this.rootUrl}/session/${key}`;
+    const url = key !== undefined ? `${this.rootUrl}/session/${key}` : `${this.rootUrl}/sessions`; // define url based on key
     const jwt = await this.login();
     const headers = { 'Authorization': `Bearer ${jwt}` };
     const response = await retryFetch(url, { method, body, headers });
@@ -77,6 +77,10 @@ export function freeStorage<T>(token: string, opts?: StorageOptions) {
   const storage = new Storage(token, opts?.rootUrl);
   if (opts?.jwt !== undefined) storage.jwt = opts.jwt;
   return {
+    async readAllKeys(): Promise<T> {
+      const keys = await storage.call('GET');
+      return keys === undefined ? undefined : JSON.parse(keys);
+    },
     async read(key: string): Promise<T> {
       const session = await storage.call('GET', key);
       return session === undefined ? undefined : JSON.parse(session);
